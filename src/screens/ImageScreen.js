@@ -5,9 +5,9 @@ import ImageDetails from "../Components/ImageDetails";
 const ImageScreen = () =>{
     return (
         <View>
-            <ImageDetails title = "Beach"/>
-            <ImageDetails title = "Sea"/>
-            <ImageDetails title = "Mountain"/>
+            <ImageDetails title = "Beach" score= "7" imageUrl={require('../../assets/images/beach.jpg')}/>
+            <ImageDetails title = "Forest" score= "6" imageUrl={require('../../assets/images/forest.jpg')}/>
+            <ImageDetails title = "Mountain" score= "9" imageUrl={require('../../assets/images/mountain.jpg')}/>
         </View>
         
     );
