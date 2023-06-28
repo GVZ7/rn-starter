@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {View, StyleSheet,Text, Button} from 'react-native';
-
+import ImageDetails from "../Components/ImageDetails";
 const CounterScreen = () => {
     const [starts,setStart] = useState(0);
     return (
@@ -19,6 +19,7 @@ const CounterScreen = () => {
                 }}
             />
             <Text>{starts}</Text>
+            <ImageDetails title='counter' imageUrl={require('../../assets/images/beach.jpg' )} score={starts}/>
         </View>
     );
 };
