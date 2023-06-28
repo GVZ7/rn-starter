@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import {View, StyleSheet,Text, Button} from 'react-native';
+import { FlatList } from "react-native-gesture-handler";
+import { color } from "react-native-reanimated";
 const CounterScreen = () => {
     const [colors, setColors] = useState([]);
-    console.log(colors);
+
     return (
         <View>
             <Button
@@ -11,7 +13,20 @@ const CounterScreen = () => {
                    setColors([...colors, RandomRgb()]);
                 }}
             />
-            <View style ={styles.colorBox} ></View>
+            <FlatList
+                data = {colors}
+                keyExtractor={(item)=> item}
+                renderItem={({item})=>{
+                    return  <View style ={{width:100, height:100, backgroundColor : item}} ></View>
+                }}
+            />
+            <Button
+                title="Clear Colors"
+                onPress={()=>{
+                   setColors([]);
+                }}
+            />
+
         </View>
     );
 };
