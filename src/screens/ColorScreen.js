@@ -1,14 +1,14 @@
 import React, {useState} from "react";
 import {View, StyleSheet,Text, Button} from 'react-native';
 const CounterScreen = () => {
-    const [starts,setStart] = useState(0);
+    const [colors, setColors] = useState([]);
+    console.log(colors);
     return (
-       
         <View>
             <Button
-                title="Change Color"
+                title="Add a Color"
                 onPress={()=>{
-                    setStart(starts+1);
+                   setColors([...colors, RandomRgb()]);
                 }}
             />
             <View style ={styles.colorBox} ></View>
