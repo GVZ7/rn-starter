@@ -1,25 +1,32 @@
-import React, {useState} from "react";
+import React, {useReducer} from "react";
 import {View, StyleSheet,Text, Button} from 'react-native';
 import ImageDetails from "../Components/ImageDetails";
+
+const reducer = (state, action) => {
+    return  {...state, counter: state.counter+action.payload, testing: state.testing+1}
+}
+
 const CounterScreen = () => {
-    const [starts,setStart] = useState(0);
+    const [state, dispatch] = useReducer(reducer,{counter:0, testing:0});
+    const {counter, testing} = state;
+    console.log(testing);
     return (
        
         <View>
             <Button
                 title="Increase"
                 onPress={()=>{
-                    setStart(starts+1);
+                    dispatch({payload:1});
                 }}
             />
             <Button
                 title="Decrease"
                 onPress={()=>{
-                    setStart(starts-1);
+                    dispatch({payload:-1});
                 }}
             />
-            <Text>{starts}</Text>
-            <ImageDetails title='counter' imageUrl={require('../../assets/images/beach.jpg' )} score={starts}/>
+            <Text>{counter}</Text>
+            <ImageDetails title='counter' imageUrl={require('../../assets/images/beach.jpg' )} score={counter}/>
         </View>
     );
 };
